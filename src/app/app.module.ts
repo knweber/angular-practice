@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list.component';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'
 
 // Ng module decorator:
 @NgModule({
@@ -12,7 +13,8 @@ import { BookListComponent } from './books/book-list.component';
 // which of our components belong to this module
   declarations: [
     AppComponent,
-    BookListComponent
+    BookListComponent,
+    ConvertToSpacesPipe
   ],
 
   // EXTERNAL modules we want to have available to all of the components that belong to this Angular module

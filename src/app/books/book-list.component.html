@@ -40,7 +40,7 @@
                [style.margin.px] = 'imageMargin'>
             </td>
             <td>{{ book.bookTitle }}</td>
-            <td>{{ book.bookCode | lowercase }}</td>
+            <td>{{ book.bookCode | lowercase | convertToSpaces: '-' }}</td>
             <td>{{ book.price | currency:'USD':true:'1.2-2' }}</td>
             <td>{{ book.starRating }}</td>
           </tr>
