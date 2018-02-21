@@ -6,12 +6,12 @@
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
-        <input type="text" />
+        <input type="text" [(ngModel)]="listFilter"/>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h3>Filtered by:</h3>
+        <h3>Filtered by: {{listFilter}}</h3>
       </div>
     </div>
     <div class="table-responsive">
@@ -40,8 +40,8 @@
                [style.margin.px] = 'imageMargin'>
             </td>
             <td>{{ book.bookTitle }}</td>
-            <td>{{ book.bookCode }}</td>
-            <td>{{ book.price }}</td>
+            <td>{{ book.bookCode | lowercase }}</td>
+            <td>{{ book.price | currency:'USD':true:'1.2-2' }}</td>
             <td>{{ book.starRating }}</td>
           </tr>
         </tbody>

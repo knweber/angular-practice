@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IBook } from './book';
 
 @Component({
   selector: 'books',
@@ -10,7 +11,8 @@ export class BookListComponent {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  books = [
+  listFilter = 'cart';
+  books: IBook[] = [
     {
       bookId: 2,
       bookTitle: 'The Handmaid\'s Tale',

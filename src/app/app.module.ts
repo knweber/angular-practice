@@ -15,7 +15,7 @@ import { BookListComponent } from './books/book-list.component';
     BookListComponent
   ],
 
-  // external modules we want to have available to all of the components that belong to this Angular module
+  // EXTERNAL modules we want to have available to all of the components that belong to this Angular module
   imports: [
     BrowserModule,
     FormsModule,
