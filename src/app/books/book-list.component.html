@@ -20,8 +20,8 @@
         <thead>
           <tr>
             <th>
-              <button class="btn btn-primary">
-                Show Image
+              <button class="btn btn-primary" (click)='toggleImage()'>
+                {{ showImage ? 'Hide' : 'Show' }} Image
               </button>
             </th>
             <th>Book</th>
@@ -33,7 +33,11 @@
         <tbody>
           <tr *ngFor="let book of books">
             <td>
-              <img [src]='book.imageUrl' [title]='book.bookTitle'>
+              <img *ngIf='showImage'
+               [src]='book.imageUrl'
+               [title]='book.bookTitle'
+               [style.width.px] = 'imageWidth'
+               [style.margin.px] = 'imageMargin'>
             </td>
             <td>{{ book.bookTitle }}</td>
             <td>{{ book.bookCode }}</td>

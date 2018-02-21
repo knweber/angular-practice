@@ -9,6 +9,7 @@ export class BookListComponent {
   title = 'All the books!';
   imageWidth = 50;
   imageMargin = 2;
+  showImage = false;
   books = [
     {
       bookId: 2,
@@ -47,4 +48,7 @@ export class BookListComponent {
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
     }
   ];
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }
