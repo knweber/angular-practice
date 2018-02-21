@@ -32,7 +32,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let book of books">
-            <td></td>
+            <td>
+              <img [src]='book.imageUrl' [title]='book.bookTitle'>
+            </td>
             <td>{{ book.bookTitle }}</td>
             <td>{{ book.bookCode }}</td>
             <td>{{ book.price }}</td>

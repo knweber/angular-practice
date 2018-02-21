@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 
 export class BookListComponent {
   title = 'All the books!';
+  imageWidth = 50;
+  imageMargin = 2;
   books = [
     {
       bookId: 2,
@@ -30,7 +32,7 @@ export class BookListComponent {
       bookId: 5,
       bookTitle: 'The Daily Show (The Book)',
       bookCode: "GHI",
-      description: "The complete, uncensored history of the award-winning The Daily Show with Jon Stewart, as told by its correspondents, writers, and host. ",
+      description: "The complete, uncensored history of the award-winning The Daily Show with Jon Stewart, as told by its correspondents, writers, and host.",
       price: 25.99,
       starRating: 5.0,
       imageUrl: "https://leadershipmarketingandeverything.files.wordpress.com/2017/09/the-daily-show-the-book.jpg?w=398&h=600"
@@ -39,7 +41,7 @@ export class BookListComponent {
       bookId: 7,
       bookTitle: 'Born a Crime',
       bookCode: "JKL",
-      description: "Born a Crime: Stories from a South African Childhood is an autobiographical comedy book written by the South African comedian Trevor Noah",
+      description: "Born a Crime: Stories from a South African Childhood is an autobiographical comedy book written by the South African comedian Trevor Noah.",
       price: 20.99,
       starRating: 5.0,
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
