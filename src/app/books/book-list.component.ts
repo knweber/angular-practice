@@ -12,7 +12,17 @@ export class BookListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  listFilter = 'cart';
+
+  _listFilter: string;
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value:string) {
+    this._listFilter = value;
+    this.filteredBooks = this.listFilter ? this.performFilter(this.listFilter) : this.books;
+  }
+
+  filteredBooks: IBook[];
   books: IBook[] = [
     {
       bookId: 2,
@@ -51,6 +61,15 @@ export class BookListComponent implements OnInit {
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
     }
   ];
+
+  constructor() {
+    this.filteredBooks = this.books;
+    this.listFilter = '';
+  }
+
+  performFilter(filterBy: string): IBook[] {
+    return this.books.filter((book: IBook) => book.bookTitle.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
