@@ -39,7 +39,7 @@ export class BookListComponent implements OnInit {
       bookCode: "DEF-2760",
       description: "A biography of the British mathematician, codebreaker, and early computer scientist, Alan Turing (1912–1954) by Andrew Hodges. The book covers Alan Turing's life and work. The American 2014 film The Imitation Game is loosely based on the book, with dramatization.",
       price: 40.99,
-      starRating: 4.7,
+      starRating: 4,
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/0/09/Alan_Turing_The_Enigma.jpg"
     },
     {
@@ -57,7 +57,7 @@ export class BookListComponent implements OnInit {
       bookCode: "JKL-999",
       description: "Born a Crime: Stories from a South African Childhood is an autobiographical comedy book written by the South African comedian Trevor Noah.",
       price: 20.99,
-      starRating: 5.0,
+      starRating: 4.5,
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
     }
   ];
@@ -65,6 +65,10 @@ export class BookListComponent implements OnInit {
   constructor() {
     this.filteredBooks = this.books;
     this.listFilter = '';
+  }
+
+  onRatingClicked(message: string): void {
+    this.title = 'All the books! ' + message;
   }
 
   performFilter(filterBy: string): IBook[] {

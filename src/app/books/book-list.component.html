@@ -42,7 +42,10 @@
             <td>{{ book.bookTitle }}</td>
             <td>{{ book.bookCode | lowercase | convertToSpaces: '-' }}</td>
             <td>{{ book.price | currency:'USD':true:'1.2-2' }}</td>
-            <td>{{ book.starRating }}</td>
+            <td>
+              <star [rating] = 'book.starRating'
+                (ratingClicked) = 'onRatingClicked($event)'></star>
+            </td>
           </tr>
         </tbody>
       </table>
