@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from './book';
+import { BookService } from './book.service';
 
 @Component({
   selector: 'books',
@@ -8,6 +9,7 @@ import { IBook } from './book';
 })
 
 export class BookListComponent implements OnInit {
+//  private _bookService;  private variable to hold the injected service instance
   title = 'All the books!';
   imageWidth = 50;
   imageMargin = 2;
@@ -23,48 +25,9 @@ export class BookListComponent implements OnInit {
   }
 
   filteredBooks: IBook[];
-  books: IBook[] = [
-    {
-      bookId: 2,
-      bookTitle: 'The Handmaid\'s Tale',
-      bookCode: "ABC-21",
-      description: "The Handmaid's Tale is a dystopian novel by Canadian author Margaret Atwood, originally published in 1985. It is set in a near-future New England, in a totalitarian, Christian theonomy that has overthrown the United States government.",
-      price: 10.99,
-      starRating: 5.0,
-      imageUrl: "https://middleburycampus.com/wp-content/uploads/2017/09/HandmaidsTale_DavisFamilyLibrary.jpg"
-    },
-    {
-      bookId: 4,
-      bookTitle: 'Alan Turing: The Enigma',
-      bookCode: "DEF-2760",
-      description: "A biography of the British mathematician, codebreaker, and early computer scientist, Alan Turing (1912–1954) by Andrew Hodges. The book covers Alan Turing's life and work. The American 2014 film The Imitation Game is loosely based on the book, with dramatization.",
-      price: 40.99,
-      starRating: 4,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/en/0/09/Alan_Turing_The_Enigma.jpg"
-    },
-    {
-      bookId: 5,
-      bookTitle: 'The Daily Show (The Book)',
-      bookCode: "GHI-32553",
-      description: "The complete, uncensored history of the award-winning The Daily Show with Jon Stewart, as told by its correspondents, writers, and host.",
-      price: 25.99,
-      starRating: 5.0,
-      imageUrl: "https://leadershipmarketingandeverything.files.wordpress.com/2017/09/the-daily-show-the-book.jpg?w=398&h=600"
-    },
-    {
-      bookId: 7,
-      bookTitle: 'Born a Crime',
-      bookCode: "JKL-999",
-      description: "Born a Crime: Stories from a South African Childhood is an autobiographical comedy book written by the South African comedian Trevor Noah.",
-      price: 20.99,
-      starRating: 4.5,
-      imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
-    }
-  ];
+  books: IBook[] = [];
 
-  constructor() {
-    this.filteredBooks = this.books;
-    this.listFilter = '';
+  constructor(private _bookService: BookService) {
   }
 
   onRatingClicked(message: string): void {
@@ -79,7 +42,9 @@ export class BookListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  // we don't want to have lots of logic in our constructor -- put it here instead
   ngOnInit(): void {
-    console.log("In OnInit!");
+    this.books = this._bookService.getBooks();
+    this.filteredBooks = this.books; //
   }
 }
