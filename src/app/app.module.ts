@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list.component';
@@ -23,7 +23,7 @@ import { StarComponent } from './shared/star.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClient
+    HttpClientModule
   ],
   providers: [],
 

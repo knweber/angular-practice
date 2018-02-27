@@ -8,9 +8,9 @@ import { Observable } from 'rxjs/Observable';
 export class BookService {
   private _bookUrl = './books.json';
 
-  constructor(private _http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return this._http.get<IBook[]>(this._bookUrl);
+    return this.httpClient.get<IBook[]>(this._bookUrl);
   }
 }
