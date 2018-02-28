@@ -1,4 +1,5 @@
-[{
+[
+  {
   "bookId": 2,
   "bookTitle": "The Handmaid's Tale",
   "bookCode": "ABC-21",
@@ -33,4 +34,5 @@
   "price": 20.99,
   "starRating": 4.5,
   "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fd/Born_a_Crime_by_Trevor_Noah_%28book_cover%29.jpg"
-}]
+}
+]

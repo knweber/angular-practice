@@ -14,6 +14,7 @@ export class BookListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
+  errorMessage: string;
 
   _listFilter: string;
   get listFilter(): string {
@@ -44,7 +45,12 @@ export class BookListComponent implements OnInit {
 
   // we don't want to have lots of logic in our constructor -- put it here instead
   ngOnInit(): void {
-    this.books = this._bookService.getBooks();
-    this.filteredBooks = this.books; //
+    // observables are lazy -- they don't start emitting values until subscribe is called
+    this._bookService.getBooks()
+      .subscribe(books => {
+        this.books = books;
+        this.filteredBooks = this.books;
+      },
+      error => this.errorMessage = <any>error);
   }
 }
