@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IBook } from './book';
 import { BookService } from './book.service';
 
+// This is a route, not a nested component, and thus does not need a selector
+
 @Component({
-  selector: 'books',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
@@ -20,7 +21,7 @@ export class BookListComponent implements OnInit {
   get listFilter(): string {
     return this._listFilter;
   }
-  set listFilter(value:string) {
+  set listFilter(value: string) {
     this._listFilter = value;
     this.filteredBooks = this.listFilter ? this.performFilter(this.listFilter) : this.books;
   }

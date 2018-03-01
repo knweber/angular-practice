@@ -8,5 +8,5 @@ import { BookService } from './books/book.service';
   providers: [BookService]
 })
 export class AppComponent {
-  title = 'hello friend';
+  pageTitle = 'hello friend';
 }

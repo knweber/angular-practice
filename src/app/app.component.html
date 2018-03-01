@@ -1,6 +1,14 @@
 <div>
-  <h1 class="page-header" style="text-align: center">
-    {{title}}
-  </h1>
-  <books></books>
+  <nav class='navbar navbar-default'>
+    <div class='container-fluid'>
+      <a class='navbar-brand'>{{pageTitle}}</a>
+      <ul class='nav navbar-nav'>
+        <li><a [routerLink]="['/welcome']">Home</a></li>
+        <li><a [routerLink]="['/books']">Book List</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class='container'>
+    <router-outlet></router-outlet> <!-- where each component's view is rendered -->
+  </div>
 </div>
