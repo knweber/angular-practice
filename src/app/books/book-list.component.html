@@ -39,7 +39,11 @@
                [style.width.px] = 'imageWidth'
                [style.margin.px] = 'imageMargin'>
             </td>
-            <td>{{ book.bookTitle }}</td>
+
+            <!-- first element in array is the string path of the route, second element is the value of the route paramter, e.g. a specific book ID -->
+            <td>
+              <a [routerLink]="['/books', book.bookId]">{{ book.bookTitle }}</a>
+            </td>
             <td>{{ book.bookCode | lowercase | convertToSpaces: '-' }}</td>
             <td>{{ book.price | currency:'USD':true:'1.2-2' }}</td>
             <td>

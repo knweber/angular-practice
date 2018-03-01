@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from './book';
 import { BookService } from './book.service';
+import { ActivatedRoute } from '@angular/router';
 
 // This is a route, not a nested component, and thus does not need a selector
 
